@@ -20,4 +20,4 @@ const PuntuacionSchema = Schema({
 });
 
 
-module.exports = model('Puntuacion', ClienteSchema);
+module.exports = model('Puntuacion', PuntuacionSchema);

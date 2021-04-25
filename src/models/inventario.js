@@ -18,4 +18,4 @@ const InventarioSchema = Schema({
 });
 
 
-module.exports = model('Inventario', ClienteSchema);
+module.exports = model('Inventario', InventarioSchema);

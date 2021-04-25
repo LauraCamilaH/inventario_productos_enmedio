@@ -1,14 +1,12 @@
-const { dbConnection } = require("../DB/conexionDB");
-
 const router = require("express").Router();
+const { asyncHandler } = require('../utils/utils')
+const { crear, consultar } = require('../controllers/puntuacion')
 
-router.get('producto/puntuacion', async (req, res)=>{
 
-});
+router.get('/productos/puntuacion', asyncHandler (consultar));
 
-router.post('producto/puntuacion', async (req, res)=>{
+router.post('/productos/puntuacion/:id', asyncHandler(crear));
 
-});
 
 
 

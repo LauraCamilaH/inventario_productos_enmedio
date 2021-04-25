@@ -3,7 +3,9 @@ const mongoose = require('mongoose');
 
 
 const dbConnection = async () => {
-    const url = `mongodb+srv://db_Laurach:lau123456@cluster0.ic52c.mongodb.net/xyzDatabase?retryWrites=true&w=majority`
+    if(mongoose.connection.readyState == 1) return; //Ya está conectado
+    //const url = `mongodb+srv://db_Laurach:lau123456@cluster0.ic52c.mongodb.net/xyzDatabase?retryWrites=true&w=majority`
+    const url = `mongodb://pruebas:123@192.168.0.77:27017/pruebas?authSource=pruebas`
     try {
 
         await mongoose.connect(url, {

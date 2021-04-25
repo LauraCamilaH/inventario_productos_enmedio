@@ -1,17 +1,16 @@
-const { dbConnection } = require("../DB/conexionDB");
-
 const router = require("express").Router();
+const { asyncHandler } = require('../utils/utils')
+const { inventario, inventarioID } = require('../controllers/productos')
+const { BadRequest } = require('../utils/errors')
 
 
-router.get('producto/inventario', async (req, res)=>{
 
-});
+router.get('/productos/inventario',  asyncHandler (inventario));
 
 
 //...
-router.get('producto/inventario/:referencia', async (req, res)=>{
+router.get('/productos/inventario/:referencia', asyncHandler(inventarioID));
 
-});
 
 
 

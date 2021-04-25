@@ -23,4 +23,4 @@ const ProductoSchema = Schema({
 });
 
 
-module.exports = model('Producto', ProductoSchema);
+module.exports = model('Producto', ProductoSchema );

@@ -6,7 +6,7 @@ const FacturaSchema = Schema({
         unique: true
     },
 
-    lineas =[
+    lineas: [
         {
             producto: {
                 type: Schema.Types.ObjectId,
@@ -39,4 +39,4 @@ const FacturaSchema = Schema({
 });
 
 
-module.exports = model('Factura', ProductoSchema);
+module.exports = model('Factura', FacturaSchema);

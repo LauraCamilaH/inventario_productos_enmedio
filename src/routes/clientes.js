@@ -1,31 +1,20 @@
-const { dbConnection } = require("../DB/conexionDB");
-
 const router = require("express").Router();
+const { asyncHandler } = require('../utils/utils')
+const { clientesFrecuentes, crear, consultar} = require('../controllers/cliente')
+const { BadRequest } = require('../utils/errors')
 
 
-router.get("/clientes/frecuentes", async(req, res) => {
-    await dbConnection()
-    res.status(200).json({
-        mensaje: "clientes"
-    });
-}); 
+
+router.get("/clientes/frecuentes", asyncHandler (
+ clientesFrecuentes
+)); 
 
 
 //..
-router.post("/clientes", async(req, res) => {
-    await dbConnection()
-    res.status(200).json({
-        mensaje: "clientes"
-    });
-});
+router.post("/clientes", asyncHandler (crear));
 
 
-router.get("/clientes", async(req, res) => {
-    await dbConnection()
-    res.status(200).json({
-        mensaje: "clientes"
-    });
-}); 
+router.get("/clientes",  asyncHandler (consultar)); 
 
 
 module.exports = { router };

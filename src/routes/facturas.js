@@ -1,15 +1,12 @@
-const { dbConnection } = require("../DB/conexionDB");
-
 const router = require("express").Router();
+const { asyncHandler } = require('../utils/utils')
+const { crear, consultar} = require('../controllers/factura')
+const { BadRequest } = require('../utils/errors')
 
 
-router.post('facturas', async (req, res)=>{
+router.post('/facturas', asyncHandler(crear));
 
-});
-
-router.get('facturas', async (req, res)=>{
-
-});
+router.get('/facturas', asyncHandler (consultar));
 
 
 

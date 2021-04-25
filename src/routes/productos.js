@@ -1,34 +1,21 @@
-const { dbConnection } = require("../DB/conexionDB");
-
 const router = require("express").Router();
+const { asyncHandler } = require('../utils/utils')
+const { crearProducto, eliminar, consultar, actualizar} = require('../controllers/productos')
+const { BadRequest } = require('../utils/errors')
 
 
-router.post("/productos", async(req, res) => {
-    await dbConnection()
-    res.status(200).json({
-        mensaje: "productos"
-    });
-});
+router.post("/productos", asyncHandler( async(req, res, next) => {
+   await crearProducto(req, res)
+}));
 
-router.delete("/productos", async(req, res) => {
-    res.status(200).json({
-        mensaje: "productos"
-    });
-}); 
+router.delete("/productos/:id", asyncHandler(eliminar)); 
 
-router.put("/productos", async(req, res) => {
-    
-    res.status(200).json({
-        mensaje: "productos"
-    });
-}); 
+router.put("/productos/:id", asyncHandler (actualizar)); 
 
 //...
-router.get("/productos", async(req, res) => {
-    res.status(200).json({
-        mensaje: "productos"
-    });
-}); 
+router.get("/productos", asyncHandler ( async(req, res, next) => {
+   await consultar(req, res)
+})); 
 
 
 module.exports = { router };
