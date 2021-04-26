@@ -1,0 +1,233 @@
+{
+	"info": {
+		"_postman_id": "e0e639ac-8890-4324-91d2-c67d5de9a072",
+		"name": "XYZ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Productos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{url}}/productos"
+			},
+			"response": []
+		},
+		{
+			"name": "puntuacion de los productos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{url}}/productos/puntuacion"
+			},
+			"response": []
+		},
+		{
+			"name": "tiempos de entrega",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{url}}/productos/entrega"
+			},
+			"response": []
+		},
+		{
+			"name": "Inventario de productos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{url}}/productos/inventario"
+			},
+			"response": []
+		},
+		{
+			"name": "facturas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{url}}/facturas"
+			},
+			"response": []
+		},
+		{
+			"name": "estadisticas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{url}}/facturas"
+			},
+			"response": []
+		},
+		{
+			"name": "clientes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{url}}/clientes"
+			},
+			"response": []
+		},
+		{
+			"name": "clientes Frecuentes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{url}}/clientes/frecuentes"
+			},
+			"response": []
+		},
+		{
+			"name": "clientes",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"ASD empresa\",\r\n    \"correo\":  \"asd@gmail.com\"     \r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{url}}/clientes"
+			},
+			"response": []
+		},
+		{
+			"name": "Facturas",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numero\": 102,\r\n    \"total\": 26600,\r\n    \"lineas\": [{\r\n        \"producto\": \"6085b1de5a7991d8d9e5d935\",\r\n        \"cantidad\": 2,\r\n        \"precioUnitario\": 3,\r\n        \"subtotal\": 6\r\n     }, {\r\n        \"producto\": \"6085b1de5a7991d8d9e5d935\",\r\n        \"cantidad\": 1,\r\n        \"precioUnitario\": 3,\r\n        \"subtotal\": 6\r\n     }], \r\n    \"cliente\": \"6085b46c7b105ad64dfd0e66\"         \r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{url}}/facturas"
+			},
+			"response": []
+		},
+		{
+			"name": "Productos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"CEMENTO\",\r\n    \"precio\": 4444,\r\n    \"descripcion\": \"bulto de cemento \",\r\n    \"tiempo_entrega\": \"10 dias\"         \r\n\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{url}}/productos"
+			},
+			"response": []
+		},
+		{
+			"name": "Inventario movimiento de productos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tipo_movimiento\": \"Entrada\",\r\n    \"cantidad\": 6\r\n         \r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{url}}/productos/movimiento/6085b1de5a7991d8d9e5d935"
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Puntuacion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"puntuacion\": 2,\r\n    \"cliente\": \"60861939da97230015270908\"         \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{url}}/productos/puntuacion/60861a96da9723001527090e"
+			},
+			"response": []
+		},
+		{
+			"name": "Producto",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{url}}/productos/6085b0fa5a7991d8d9e5d934"
+			},
+			"response": []
+		},
+		{
+			"name": "Producto",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"precio\": 10000,\r\n    \"descripcion\": \"barra diago G-60\",\r\n    \"tiempo_entrega\": \"1 días\",\r\n    \"nombre\": \"BARRA CORRUGADA 1.2 M\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{url}}/productos/6085b1de5a7991d8d9e5d935"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://xyz-backend-webserver.herokuapp.com"
+		}
+	]
+}
