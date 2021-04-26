@@ -18,7 +18,7 @@ router.get("/productos", asyncHandler ( async(req, res, next) => {
 })); 
 
 router.get('/',  asyncHandler (async(req, res, next)=>{
-const informacion = "Desarrollo solución backend empresa XYZ"
+const informacion = "https://github.com/LauraCamilaH/inventario_productos_enmedio#readme"
    res.json({Data: informacion})
 }));
 
