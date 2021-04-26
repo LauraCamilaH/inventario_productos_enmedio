@@ -5,9 +5,7 @@ const { BadRequest } = require('../utils/errors')
 
 
 
-router.get("/clientes/frecuentes", asyncHandler (
- clientesFrecuentes
-)); 
+router.get("/clientes/frecuentes", asyncHandler (clientesFrecuentes)); 
 
 
 //..

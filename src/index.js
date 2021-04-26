@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
-const dbConnection = require('./DB/conexionDB')
-
+require('dotenv').config();
 //app.use(cors())
 
 
@@ -18,7 +17,6 @@ app.use(require('./routes/routes'));
 
 
 app.use(handleErrorsMiddleware);
-const puerto = 3000 
-app.listen(puerto, () => {
-    console.log(`The server has started on port: ${puerto}`)
+app.listen(process.env.PORT, () => {
+    console.log(`The server has started on port: ${process.env.PORT}`)
 });

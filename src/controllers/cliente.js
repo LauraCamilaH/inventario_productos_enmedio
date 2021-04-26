@@ -1,5 +1,5 @@
 const { dbConnection } = require('../DB/conexionDB')
-const { Cliente } = require('../models/models')
+const { Cliente, Factura } = require('../models/models')
 const { BadRequest } = require('../utils/errors')
 
 
@@ -30,10 +30,47 @@ const consultar = async (req, res) => {
     res.status(200).json(clientes)
 }
 
-const clientesFrecuentes = async (req, resa) => {
+const clientesFrecuentes = async (req, res) => {
     await dbConnection()
 
-    const clientes = await Cliente.find()
+    const clientes = await Factura.aggregate(
+        [
+            { 
+                "$group" : { 
+                    "_id" : "$cliente", 
+                    "cantidad" : { 
+                        "$sum" : 1.0
+                    }
+                }
+            }, 
+            { 
+                "$lookup" : { 
+                    "from" : "clientes", 
+                    "localField" : "_id", 
+                    "foreignField" : "_id", 
+                    "as" : "clientes"
+                }
+            }, 
+            { 
+                "$project" : { 
+                    "idCliente" : "$_id", 
+                    "cliente" : { 
+                        "$arrayElemAt" : [
+                            "$clientes", 
+                            0.0
+                        ]
+                    }, 
+                    "cantidad_compras" : "$cantidad"
+                }
+            }, 
+            { 
+                "$project" : { 
+                    "nombre" : "$cliente.nombre", 
+                    "cantidad_compras" : "$cantidad_compras"
+                }
+            }
+        ]
+    )
 
     res.status(200).json(clientes)
 }

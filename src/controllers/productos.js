@@ -62,25 +62,11 @@ const actualizar = async (req, res) => {
 
 }
 
-const inventario = async (req, res ) => {
-    await dbConnection()
 
-    const productos = await Producto.find()
-
-    res.status(200).json(productos)
-}
-
-const inventarioID = async (req, res ) => {
-    await dbConnection()
-
-    const productos = await Producto.find()
-
-    res.status(200).json(productos)
-}
 const consultarTiemposEntrega = async (req, res ) => {
     await dbConnection()
 
-    const productos = await Producto.find()
+    const productos = await Producto.find({},{nombre:1, tiempo_entrega:1, _id:0})
 
     res.status(200).json(productos)
 }
@@ -91,7 +77,5 @@ module.exports = {
     eliminar,
     consultar,
     actualizar,
-    inventario,
-    inventarioID, 
-    consultarTiemposEntrega
+    consultarTiemposEntrega,
 }

@@ -8,12 +8,11 @@ const InventarioSchema = Schema({
     },
     tipo: {
         type: String,
-        emun: ['Entrada', 'Salida']
-
+        lowercase: true,
+        enum: ['entrada', 'salida']
     },
     cantidad: {
         type: Number,
-
     }
 });
 

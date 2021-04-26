@@ -7,8 +7,8 @@ const PuntuacionSchema = Schema({
         required: true
     },
     puntuacion: {
-        type: String,
-        emun: ['1', '2', '3', '4', '5']
+        type: Number,
+        enum: [1, 2, 3, 4, 5]
 
     },
     cliente: {

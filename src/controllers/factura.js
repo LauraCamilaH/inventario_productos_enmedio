@@ -1,21 +1,29 @@
 const { dbConnection } = require('../DB/conexionDB')
-const { Factura } = require('../models/models')
+const { Factura, Inventario } = require('../models/models');
 const { BadRequest } = require('../utils/errors')
 
 
 const crear = async (req, res) => {
 
     await dbConnection()
-    const { ...body } = req.body;
+    const { lineas, ...body } = req.body;
+    const data = { lineas, ...body }
+    //const dataMovimiento = [];
 
-
-    const data = {
-        ...body
+    for (const linea of lineas) {
+        const dataMovimiento = {
+            tipo: "salida",
+            producto: linea.producto,
+            cantidad: linea.cantidad
+        }
+        let movimiento = new Inventario(dataMovimiento);
+        await movimiento.save();
     }
 
-    const factura = new Factura(data);
 
+    const factura = new Factura(data);
     await factura.save();
+
 
     res.status(201).json(factura);
 
