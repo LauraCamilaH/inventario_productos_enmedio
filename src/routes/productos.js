@@ -18,8 +18,8 @@ router.get("/productos", asyncHandler ( async(req, res, next) => {
 })); 
 
 router.get('/',  asyncHandler (async(req, res, next)=>{
-const informacion = "Desarrollo solucion backend empresa XYZ"
-   res.json({informacion})
+const informacion = "Desarrollo solución backend empresa XYZ"
+   res.json({Data: informacion})
 }));
 
 module.exports = { router };
