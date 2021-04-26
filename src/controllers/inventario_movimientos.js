@@ -14,7 +14,7 @@ const inventario = async (req, res) => {
                             "if": {
                                 "$eq": [
                                     "$tipo",
-                                    "Entrada"
+                                    "entrada"
                                 ]
                             },
                             "then": "$cantidad",
