@@ -57,4 +57,4 @@ Para el funcionamiento correcto se crearon mas APIS, que ayudan con las consulta
 
 ***postman***
 
-archivo: XYZ.postman_collection.json, se encuentra en la raiz del proyecto
+archivo: XYZ.postman_collection.json, se encuentra en la raiz del proyecto.
